@@ -29,7 +29,12 @@ const SkillCard = ({ icon, title, description, skills, className }: SkillCardPro
                 <span className="font-medium">{skill.name}</span>
                 <span className="text-sm text-muted-foreground">{skill.level}%</span>
               </div>
-              <Progress value={skill.level} className="h-2" indicatorClassName="bg-portfolio-purple" />
+              <Progress value={skill.level} className="h-2 bg-slate-200 dark:bg-slate-700">
+                <div 
+                  className="h-full bg-portfolio-purple dark:bg-portfolio-purple/80 transition-all duration-500 ease-out rounded-full" 
+                  style={{ width: `${skill.level}%` }} 
+                />
+              </Progress>
             </div>
           ))}
         </div>

@@ -18,6 +18,18 @@
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    
+    <!-- Script to prevent theme flickering on load -->
+    <script>
+      // Check for saved theme preference or OS preference
+      const userTheme = localStorage.getItem('theme');
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      // Set initial theme
+      if (userTheme === 'dark' || (!userTheme && systemPrefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
   </head>
 
   <body>
