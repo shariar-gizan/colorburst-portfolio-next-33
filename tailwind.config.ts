@@ -1,4 +1,6 @@
+
 import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
 	darkMode: ["class"],
@@ -61,7 +63,17 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+                portfolio: {
+                    purple: '#8B5CF6',
+                    blue: '#0EA5E9',
+                    pink: '#D946EF',
+                    orange: '#F97316',
+                    'soft-purple': '#E5DEFF',
+                    'soft-blue': '#D3E4FD',
+                    'soft-pink': '#FFDEE2',
+                    'soft-orange': '#FEC6A1',
+                }
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -70,26 +82,36 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
-				}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
+				},
+                'float': {
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(-10px)' }
+                },
+                'shimmer': {
+                    '0%': { backgroundPosition: '-500px 0' },
+                    '100%': { backgroundPosition: '500px 0' }
+                }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+                'float': 'float 6s ease-in-out infinite',
+                'shimmer': 'shimmer 2s infinite linear'
+			},
+            fontFamily: {
+                sans: ["Inter var", ...fontFamily.sans],
+            },
+            backgroundImage: {
+                'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                'gradient-hero': 'linear-gradient(90deg, hsla(277, 75%, 84%, 1) 0%, hsla(297, 50%, 51%, 1) 100%)',
+                'gradient-card': 'linear-gradient(90deg, hsla(221, 45%, 73%, 1) 0%, hsla(220, 78%, 29%, 1) 100%)',
+            },
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
